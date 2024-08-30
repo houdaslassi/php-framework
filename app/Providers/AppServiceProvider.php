@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Core\Example;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 use League\Container\ServiceProvider\BootableServiceProviderInterface;
 
@@ -14,16 +15,16 @@ class AppServiceProvider extends AbstractServiceProvider implements BootableServ
 
     public function register(): void
     {
-        $this->getContainer()->add('name', function () {
-            return 'Houda';
-        });
+        /*$this->getContainer()->add(Example::class, function () {
+            return new Example();
+        });*/
 
     }
 
     public function provides(String $id): bool
     {
        $services = [
-           'name'
+           //Example::class
        ];
 
        return in_array($id, $services);
