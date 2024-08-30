@@ -5,12 +5,13 @@ namespace App\Providers;
 use App\Core\Example;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 use League\Container\ServiceProvider\BootableServiceProviderInterface;
+use Spatie\Ignition\Ignition;
 
 class AppServiceProvider extends AbstractServiceProvider implements BootableServiceProviderInterface
 {
    public function boot(): void
    {
-       var_dump('App is booting...');
+       Ignition::make()->register();
    }
 
     public function register(): void
