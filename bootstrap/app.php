@@ -1,24 +1,22 @@
 <?php
 
 use App\Core\App;
-use Spatie\Ignition\Ignition;
-use League\Container\Container;
 use App\Providers\AppServiceProvider;
 use League\Container\ReflectionContainer;
+use App\Core\Container;
+use App\Core\Example;
 
 
 require '../vendor/autoload.php';
 
-Ignition::make()->register();
-
-$container = new Container();
+$container = Container::getInstance();
 
 $container->delegate(new ReflectionContainer());
 
 
 $container->addServiceProvider(new AppServiceProvider());
 
-var_dump($container->get(\App\Core\Example::class));
+var_dump(Container::getInstance()->get(Example::class));
 
 die();
 
